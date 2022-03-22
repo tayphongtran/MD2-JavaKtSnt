@@ -5,27 +5,25 @@ import java.util.Scanner;
 public class LoopFor {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("nhập số n snt ra man hinh");
         int number = scanner.nextInt();
-        Boolean flag = true;
-        if (number < 2) {
-            System.out.println(number + " khong phai snt");
-        } else if (number == 2) {
-            System.out.println(number + "  la so nt");
-        } else if (number % 2 == 0) {
-            flag = false;
-        } else {
-            // lap tu 3 toi number -1 voi buoc nhay i +=2
-            for (int i = 3; i < Math.sqrt(number); i += 2) {
-                if (number % i == 0) {
-                    flag = false;
-                    break;
+        int count = 0;
+            int n = 2;
+            boolean check = true;
+            while (count <= Math.sqrt(number)) {
+                n++;
+                for ( int i = 2;i < n ; i++) {
+                   if (n % i == 0){
+                       check = false;
+                       break;
+                   }else {
+                       check = true ;
+                   }
+                }
+                if (check){
+                    System.out.print(n);
+                    count++;
                 }
             }
-        }
-        if (flag == true) {
-            System.out.println(number + " la snt");
-        } else {
-            System.out.println(number + " khong phai snt ");
-        }
     }
 }
